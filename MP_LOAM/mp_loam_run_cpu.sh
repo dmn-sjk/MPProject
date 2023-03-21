@@ -1,5 +1,9 @@
 xhost +local:root
 
+# BUILD THE IMAGE
+ROS_IMAGE="mp/loam"
+ROS_CONTAINER="MP_LOAM"
+
 XAUTH=/tmp/.docker.xauth
  if [ ! -f $XAUTH ]
  then
@@ -12,20 +16,17 @@ XAUTH=/tmp/.docker.xauth
      fi
      chmod a+r $XAUTH
  fi
-
-docker stop ARM_02 || true && docker rm ARM_02 || true
+ 
+docker stop MP_LOAM || true && docker rm MP_LOAM || true
 
 docker run -it \
-    --gpus all \
     --env="DISPLAY=$DISPLAY" \
     --env="QT_X11_NO_MITSHM=1" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --env="XAUTHORITY=$XAUTH" \
     --volume="$XAUTH:$XAUTH" \
-    --env="NVIDIA_VISIBLE_DEVICES=all" \
-    --env="NVIDIA_DRIVER_CAPABILITIES=all" \
     --privileged \
     --network=host \
-    --name="ARM_02" \
-    osrf/ros:noetic-desktop-full \
+    --name="$ROS_CONTAINER" \
+    $ROS_IMAGE \
     /bin/bash

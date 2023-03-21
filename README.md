@@ -1,2 +1,2 @@
-# LabARM
-Pliki niezbędne do realizacji zajęć lab z ARM
+# MPProject
+Files for Machine Perception project classes
