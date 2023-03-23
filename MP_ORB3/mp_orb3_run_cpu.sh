@@ -1,7 +1,7 @@
 xhost +local:root
 
 # BUILD THE IMAGE
-ROS_IMAGE="mp/orb3"
+ROS_IMAGE="arm/image04"
 ROS_CONTAINER="MP_ORB3"
 
 XAUTH=/tmp/.docker.xauth

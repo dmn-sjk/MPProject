@@ -2,7 +2,7 @@ xhost +local:root
 
 # BUILD THE IMAGE
 ROS_IMAGE="arm/image04"
-ROS_CONTAINER="ARM_04"
+ROS_CONTAINER="MP_ORB3"
 
 XAUTH=/tmp/.docker.xauth
  if [ ! -f $XAUTH ]
@@ -17,7 +17,7 @@ XAUTH=/tmp/.docker.xauth
      chmod a+r $XAUTH
  fi
 
-docker stop ARM_04 || true && docker rm ARM_04 || true
+docker stop MP_ORB3 || true && docker rm MP_ORB3 || true
 
 docker run -it \
     --gpus all \

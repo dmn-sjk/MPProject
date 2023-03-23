@@ -1,7 +1,7 @@
 xhost +local:root
 
 # BUILD THE IMAGE
-ROS_IMAGE="mp/loam"
+ROS_IMAGE="arm/image03"
 ROS_CONTAINER="MP_LOAM"
 
 XAUTH=/tmp/.docker.xauth
